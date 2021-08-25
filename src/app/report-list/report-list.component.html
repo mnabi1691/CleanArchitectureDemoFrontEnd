@@ -1,0 +1,23 @@
+<div *ngIf="service.report && service.report.reportList">
+  <p>Report
+  </p>
+  <table class="table table-hoverng table-sm">
+    <tr>
+      <td>Practioner:</td>
+      <td (click)="populateAppointmentList(service.report.practitionerId)">
+        {{service.report.practitionerName}}...
+      </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Month</td>
+      <td>Cost/Month</td>
+      <td>Revenue/Month</td>
+    </tr>
+    <tr *ngFor="let  r of service.report.reportList">
+      <td>{{r.month}}</td>
+      <td>{{r.costPerMonth}}</td>
+      <td>{{r.revenuePerMonth}}</td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,30 @@
+<div *ngIf="service.formData">
+    <p>Appointment Details</p>
+    <table class="table table-hoverng table-sm">
+        <tr>
+          <td>Title:</td>
+          <td>{{service.formData.title}}</td>
+        </tr>
+        <tr>
+            <td>Client:</td>
+          <td>{{service.formData.clientName}}</td>
+        </tr>
+        <tr>
+          <td>Date:</td>
+          <td>{{service.formData.date}}</td>
+        </tr>
+        <tr>
+            <td>Duration:</td>
+          <td>{{service.formData.duration}}</td>
+        </tr>
+        <tr>
+            <td>Revenue:</td>
+            <td>{{ this.service.formData.revenue}}</td>
+        </tr>
+        <tr>
+            <td>Cost:</td>
+          <td>{{ this.service.formData.cost}}</td>
+        </tr>
+      </table>
+    
+</div>

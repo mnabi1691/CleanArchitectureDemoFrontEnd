@@ -1,0 +1,15 @@
+<div *ngIf="service.appointmentList">
+    <p>Appointments</p>
+    <table class="table table-hoverng table-sm">
+        <tr>
+            <td>Title</td>
+            <td>Cost</td>
+            <td>Revenue</td>
+        </tr>
+        <tr *ngFor="let  appointment of service.appointmentList">
+          <td (click)="populateAppointmentDetails(appointment.id)">{{appointment.title}}</td>
+          <td>{{appointment.cost}}</td>
+          <td>{{appointment.revenue}}</td>
+        </tr>
+      </table>
+</div>

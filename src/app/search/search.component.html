@@ -1,0 +1,37 @@
+<div class="jumbotron">
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <div class="row form-group ">
+              <div class="column">
+                Start Date: <br />
+                <input type="datetime-local" datetime="yyyy-MM-dd" name="StartDate" [(ngModel)]="service.startdate" class="form-control"
+            placeholder="Start Date" required>
+              </div>
+            </div>
+            <div class="row form-group ">
+              <div class="column">
+                End Date: <br />
+                <input type="datetime-local" datetime="yyyy-MM-dd" name="EndDate" [(ngModel)]="service.endDate" class="form-control"
+             placeholder="End Date" required>
+              </div>
+            </div>
+            <div class="row form-group ">
+              <div class="column">
+                Practioner: <br />
+                <select class="custom-select" name="DDPractitioner" [(ngModel)]="ddlPractitioner" #DDPractioner="ngModel" 
+             [ngClass]="{ 'is-invalid': form.submitted && DDPractioner.invalid }" required>
+             <option value="0" class="text-primary font-weight-bolder">
+              --- Select Practioner ---
+            </option>
+              <option *ngFor="let c of service.selectItems" [ngValue]="c.id">{{c.name}}</option>
+              <div *ngIf="form.submitted && DDPractioner.invalid" class="text-danger">
+                <h6 *ngIf="DDPractioner.errors.required">Practitioner is Required</h6>
+              </div>
+            </select>
+              </div>
+    </div>
+    <div class="row form-group ">
+             <button class="btn btn-secondary btn-sm btn-block" type="button" [disabled]="form.invalid" (click)="reset()">Clear</button>
+             <button class="btn btn-primary btn-sm btn-block" type="submit" [disabled]="form.invalid">Submit</button>
+    </div>
+  </form>
+</div>
